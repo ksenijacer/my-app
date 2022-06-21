@@ -17,9 +17,10 @@ function App() {
             <td>vrsta: {animal.vrsta} </td>
             <td>ime: {animal.ime} </td>
             <td>datum rodjenja:
-                {animal.datum_rodjenja 
-                    ? (animal.datumRodjenja.toLocaleDateString())
+            {animal.datum_rodjenja 
+                    ? (animal.datum_rodjenja.toLocaleDateString())
                     : ("Nepoznat")}
+
             </td>
        </tr>
         ))}
