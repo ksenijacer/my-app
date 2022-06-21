@@ -17,6 +17,15 @@ function App() {
       setAnimals(newAnimals);
      }
 
+     const handleMoveToTop = (index) => {
+        const moveToTop = animals[index];
+
+        const newAnimals = animals.filter((animal, i) => i !== index);
+
+        setAnimals([moveToTop, ...newAnimals]);
+     }
+
+
 
 
 
@@ -35,6 +44,9 @@ function App() {
             </td>
             <td>
             <button onClick={() => handleRemove(index)}>Remove</button>
+            </td>
+            <td>
+            <button onClick={() => handleMoveToTop(index)}>Move to top</button>
             </td>
        </tr>
         ))}
