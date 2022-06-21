@@ -1,5 +1,6 @@
 
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
       const animalList = [
@@ -8,11 +9,21 @@ function App() {
       { vrsta: 'macka', ime: 'Krugi', datum_rodjenja: new Date('2018-08-09')},
       ];
 
+      const [animals, setAnimals]= useState(animalList)
+
+     const handleRemove = (index) => {
+      const newAnimals = animals.filter((animal, i) => i !== index);
+
+      setAnimals(newAnimals);
+     }
+
+
+
 
 
   return (<div className="App">
   <table>
-      {animalList.map((animal, index) => (
+      {animals.map((animal, index) => (
        <tr key={index}>
             <td>vrsta: {animal.vrsta} </td>
             <td>ime: {animal.ime} </td>
@@ -21,6 +32,9 @@ function App() {
                     ? (animal.datum_rodjenja.toLocaleDateString())
                     : ("Nepoznat")}
 
+            </td>
+            <td>
+            <button onClick={() => handleRemove(index)}>Remove</button>
             </td>
        </tr>
         ))}
